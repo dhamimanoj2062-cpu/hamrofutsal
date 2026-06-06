@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAMROFUTSAL - Complete Line-by-Line Code Guide</title>
+    <style>
+        /* ===== PDF-FRIENDLY PRINT STYLES ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a2e;
+            background: #ffffff;
+            line-height: 1.75;
+            font-size: 14px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Cover Page */
+        .cover-page {
+            text-align: center;
+            padding: 80px 20px;
+            page-break-after: always;
+            border: 3px solid #10b981;
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+        .cover-page h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #065f46;
+            margin-bottom: 10px;
+        }
+        .cover-page h1 span { color: #10b981; }
+        .cover-page .subtitle {
+            font-size: 18px;
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+        .cover-page .badge {
+            display: inline-block;
+            background: #ecfdf5;
+            color: #065f46;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 13px;
+            border: 1px solid #a7f3d0;
+            margin-bottom: 30px;
+        }
+        .cover-page .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .cover-page .tech-item {
+            background: #f0fdf4;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #047857;
+            border: 1px solid #bbf7d0;
+            font-size: 14px;
+        }
+
+        /* Table of Contents */
+        .toc {
+            page-break-after: always;
+            padding: 30px 0;
+        }
+        .toc h2 {
+            font-size: 28px;
+            color: #065f46;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #10b981;
+            padding-bottom: 10px;
+        }
+        .toc-section {
+            margin-bottom: 20px;
+        }
+        .toc-section h3 {
+            font-size: 16px;
+            color: #047857;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .toc-section ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        .toc-section li {
+            padding: 4px 0;
+            font-size: 13px;
+            color: #374151;
+            border-bottom: 1px dotted #e5e7eb;
+        }
+        .toc-section li::before {
+            content: "📄 ";
+        }
+
+        /* Module Headers */
+        .module-header {
+            background: #ecfdf5;
+            border: 2px solid #10b981;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin: 40px 0 25px;
+            page-break-before: always;
+        }
+        .module-header h2 {
+            font-size: 24px;
+            color: #065f46;
+            margin-bottom: 5px;
+        }
+        .module-header p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* File Section */
+        .file-section {
+            margin-bottom: 40px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .file-header {
+            background: #f9fafb;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .file-header h3 {
+            font-size: 16px;
+            color: #1f2937;
+            font-weight: 700;
+        }
+        .file-header .file-path {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: #6b7280;
+            background: #f3f4f6;
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+        .file-purpose {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 12px 18px;
+            margin: 15px 20px;
+            border-radius: 0 6px 6px 0;
+            font-size: 13px;
+            color: #92400e;
+        }
+        .file-purpose strong { color: #78350f; }
+
+        /* Code Block */
+        .code-block {
+            margin: 15px 20px 20px;
+        }
+        .code-line {
+            display: flex;
+            align-items: flex-start;
+            font-family: 'Fira Code', monospace;
+            font-size: 12.5px;
+            line-height: 1.6;
+            border-bottom: 1px solid #f3f4f6;
+            padding: 2px 0;
+        }
+        .line-number {
+            min-width: 40px;
+            text-align: right;
+            color: #9ca3af;
+            padding-right: 12px;
+            user-select: none;
+            font-size: 11px;
+        }
+        .line-code {
+            flex: 1;
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: #1f2937;
+        }
+
+        /* Comment/Explanation Box */
+        .explanation {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 10px 16px;
+            margin: 8px 20px 12px;
+            border-radius: 0 8px 8px 0;
+            font-size: 13px;
+            color: #1e40af;
+            line-height: 1.65;
+        }
+        .explanation strong {
+            color: #1e3a8a;
+        }
+        .explanation code {
+            background: #dbeafe;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+        }
+
+        /* Tip Box */
+        .tip-box {
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 10px 16px;
+            margin: 8px 20px 12px;
+            border-radius: 0 8px 8px 0;
+            font-size: 13px;
+            color: #065f46;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 10px 16px;
+            margin: 8px 20px 12px;
+            border-radius: 0 8px 8px 0;
+            font-size: 13px;
+            color: #92400e;
+        }
+
+        /* Summary Table */
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        .summary-table th {
+            background: #f0fdf4;
+            color: #065f46;
+            padding: 10px 15px;
+            text-align: left;
+            border: 1px solid #d1fae5;
+            font-weight: 600;
+        }
+        .summary-table td {
+            padding: 8px 15px;
+            border: 1px solid #e5e7eb;
+            color: #374151;
+        }
+
+        /* Flow diagram box */
+        .flow-box {
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            line-height: 2;
+            color: #334155;
+            text-align: center;
+        }
+
+        /* Print specific */
+        @media print {
+            body { padding: 20px; font-size: 12px; }
+            .module-header { page-break-before: always; }
+            .file-section { page-break-inside: avoid; }
+            .explanation { page-break-inside: avoid; }
+            .no-print { display: none; }
+        }
+
+        /* Print button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            z-index: 1000;
+            font-family: 'Inter', sans-serif;
+        }
+        .print-btn:hover { background: #059669; }
+
+        .section-divider {
+            border: none;
+            height: 2px;
+            background: #e5e7eb;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- PRINT BUTTON (won't show in PDF) -->
+<button class="print-btn no-print" onclick="window.print()">🖨️ Save as PDF</button>
+
+<!-- ============================== -->
+<!-- COVER PAGE -->
+<!-- ============================== -->
+<div class="cover-page">
+    <div class="badge">📖 Complete Beginner-Friendly Guide</div>
+    <h1>HAMRO<span>FUTSAL</span></h1>
+    <p class="subtitle">Smart Futsal Booking & Management System</p>
+    <p style="color: #9ca3af; font-size: 14px; margin-bottom: 30px;">Line-by-Line Code Explanation for Every File</p>
+    
+    <div class="tech-stack">
+        <span class="tech-item">🌐 HTML</span>
+        <span class="tech-item">🎨 CSS</span>
+        <span class="tech-item">⚡ JavaScript</span>
+        <span class="tech-item">🐘 PHP</span>
+        <span class="tech-item">🗄️ MySQL</span>
+    </div>
+    
+    <p style="margin-top: 40px; color: #9ca3af; font-size: 13px;">
+        This guide explains every single line of code in simple English.<br>
+        Perfect for students, beginners, and tutorial videos.
+    </p>
+</div>
+
+<!-- ============================== -->
+<!-- TABLE OF CONTENTS -->
+<!-- ============================== -->
+<div class="toc">
+    <h2>📋 Table of Contents</h2>
+    
+    <div class="toc-section">
+        <h3>Module 1: Core System Files (includes/)</h3>
+        <ul>
+            <li>db.php — Database Connection</li>
+            <li>auth.php — Security & Session Guards</li>
+            <li>header.php — Page Header Template</li>
+            <li>footer.php — Page Footer Template</li>
+        </ul>
+    </div>
+    
+    <div class="toc-section">
+        <h3>Module 2: Database Setup (database/)</h3>
+        <ul>
+            <li>schema.sql — Table Definitions</li>
+            <li>setup.php — Auto-Install & Seeder</li>
+        </ul>
+    </div>
+    
+    <div class="toc-section">
+        <h3>Module 3: Public Visitor Pages (Root)</h3>
+        <ul>
+            <li>index.php — Homepage</li>
+            <li>login.php — User Login</li>
+            <li>register.php — User Registration</li>
+            <li>logout.php — Session Logout</li>
+            <li>about.php — About Page</li>
+            <li>contact.php — Contact Form</li>
+        </ul>
+    </div>
+    
+    <div class="toc-section">
+        <h3>Module 4: Player Portal (player/)</h3>
+        <ul>
+            <li>dashboard.php — Player Dashboard</li>
+            <li>search.php — Search Futsal Grounds</li>
+            <li>book.php — Book a Court & Reviews</li>
+            <li>check_slots.php — AJAX Slot Checker API</li>
+            <li>history.php — Booking History & Cancel</li>
+            <li>rewards.php — Reward Points Tracker</li>
+            <li>profile.php — Player Profile Settings</li>
+        </ul>
+    </div>
+    
+    <div class="toc-section">
+        <h3>Module 5: Owner Portal (owner/)</h3>
+        <ul>
+            <li>dashboard.php — Owner Dashboard</li>
+            <li>futsals.php — Manage Courts List</li>
+            <li>futsal_add.php — Add New Court</li>
+            <li>futsal_edit.php — Edit Court</li>
+            <li>bookings.php — Manage Bookings & Rewards</li>
+            <li>stats.php — Revenue Statistics</li>
+            <li>profile.php — Owner Business Profile</li>
+        </ul>
+    </div>
+    
+    <div class="toc-section">
+        <h3>Module 6: Frontend Assets</h3>
+        <ul>
+            <li>css/style.css — Main Stylesheet</li>
+            <li>css/dashboard.css — Dashboard Stylesheet</li>
+            <li>js/main.js — Main JavaScript</li>
+            <li>js/booking.js — Booking AJAX Logic</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ============================== -->
+<!-- MODULE 1: CORE SYSTEM FILES -->
+<!-- ============================== -->
+<div class="module-header">
+    <h2>📦 Module 1: Core System Files</h2>
+    <p>These files are the "brain" of the project. Every other page includes them.</p>
+</div>
+
+<!-- ===== FILE: db.php ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 db.php</h3>
+        <span class="file-path">includes/db.php</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What does this file do?</strong> This file connects our PHP website to the MySQL database. Think of it like a "bridge" — without this file, PHP cannot read or save any data. Every page that needs database access includes this file first.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">1</span><span class="line-code">&lt;?php</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 1:</strong> This tag tells the server "Hey, the code below is PHP, not HTML." Every PHP file starts with <code>&lt;?php</code>. Think of it like saying "start speaking PHP language now."
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">5</span><span class="line-code">$host = 'localhost';</span></div>
+        <div class="code-line"><span class="line-number">6</span><span class="line-code">$db_name = 'hamrofutsal';</span></div>
+        <div class="code-line"><span class="line-number">7</span><span class="line-code">$username = 'root';</span></div>
+        <div class="code-line"><span class="line-number">8</span><span class="line-code">$password = '';</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 5-8:</strong> These are our database login details stored in variables (like labeled boxes):
+        <br>• <code>$host = 'localhost'</code> → The database server is on YOUR computer (XAMPP runs MySQL locally).
+        <br>• <code>$db_name = 'hamrofutsal'</code> → The name of our database (like the folder name for all our data).
+        <br>• <code>$username = 'root'</code> → Default XAMPP MySQL admin username.
+        <br>• <code>$password = ''</code> → Default XAMPP has no password (empty string).
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">10</span><span class="line-code">try {</span></div>
+        <div class="code-line"><span class="line-number">12</span><span class="line-code">    $conn = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8mb4", $username, $password);</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 10-12:</strong> <code>try { }</code> means "try to do this, and if something goes wrong, catch the error instead of crashing."
+        <br><br><code>new PDO(...)</code> creates a new database connection object. <strong>PDO</strong> stands for "PHP Data Objects" — it's the safest way to talk to a database because it protects against SQL injection attacks (hackers trying to break your database through forms).
+        <br><br>The connection string <code>"mysql:host=$host;dbname=$db_name;charset=utf8mb4"</code> tells PDO: "Connect to MySQL on localhost, use the hamrofutsal database, and support all characters including emojis (utf8mb4)."
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">15</span><span class="line-code">    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 15:</strong> This tells PDO: "If any SQL error happens, throw an Exception (a loud error) so I can catch and debug it." Without this, errors would be silent and your code would break with no warning. <strong>Always keep this ON during development!</strong>
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">18</span><span class="line-code">    $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 18:</strong> When we fetch data from the database, this tells PDO to return results as <strong>associative arrays</strong>. That means instead of accessing data like <code>$row[0]</code> (confusing), we can use <code>$row['name']</code> (clear and readable). Much easier for beginners!
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">19</span><span class="line-code">} catch (PDOException $e) {</span></div>
+        <div class="code-line"><span class="line-number">22</span><span class="line-code">    die("Database connection failed: " . $e->getMessage());</span></div>
+        <div class="code-line"><span class="line-number">23</span><span class="line-code">}</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 19-23:</strong> If the connection FAILS (maybe MySQL is not running in XAMPP), this <code>catch</code> block catches the error. <code>die()</code> stops the entire page and shows the error message. <strong>Common fix:</strong> Open XAMPP Control Panel and make sure MySQL is running (green light)!
+    </div>
+
+    <div class="tip-box">
+        💡 <strong>Student Tip:</strong> This file is included by every page using <code>require_once 'includes/db.php';</code>. The variable <code>$conn</code> becomes available globally for all database queries on that page.
+    </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== FILE: auth.php ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 auth.php</h3>
+        <span class="file-path">includes/auth.php</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What does this file do?</strong> This is the "security guard" of the project. It manages user sessions (remembers who is logged in), controls access to pages (players can't access owner pages), prevents hacking attacks (XSS), and shows notification messages.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">6</span><span class="line-code">if (session_status() === PHP_SESSION_NONE) {</span></div>
+        <div class="code-line"><span class="line-number">7</span><span class="line-code">    session_start();</span></div>
+        <div class="code-line"><span class="line-number">8</span><span class="line-code">}</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 6-8:</strong> Sessions are how PHP remembers a user after login. When you log in, PHP saves your info in a "session" (temporary server-side storage linked to your browser).
+        <br><br><code>session_status() === PHP_SESSION_NONE</code> checks: "Has a session already been started?" If not, <code>session_start()</code> starts one. We check first because starting a session twice causes an error.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">14</span><span class="line-code">function is_logged_in() {</span></div>
+        <div class="code-line"><span class="line-number">15</span><span class="line-code">    return isset($_SESSION['user_id']) && isset($_SESSION['user_role']);</span></div>
+        <div class="code-line"><span class="line-number">16</span><span class="line-code">}</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 14-16:</strong> This function answers the question: "Is the current visitor logged in?"
+        <br>It checks if <code>$_SESSION['user_id']</code> AND <code>$_SESSION['user_role']</code> both exist. Both must be set (that's what <code>&&</code> means — AND). If both exist, the user is logged in → returns <code>true</code>. If not → returns <code>false</code>.
+        <br><br><code>$_SESSION</code> is like a dictionary that PHP keeps for each visitor. We store the user's ID and role in it when they log in.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">22</span><span class="line-code">function require_login() {</span></div>
+        <div class="code-line"><span class="line-number">23</span><span class="line-code">    if (!is_logged_in()) {</span></div>
+        <div class="code-line"><span class="line-number">24</span><span class="line-code">        set_flash_message('Please log in to access this page.', 'danger');</span></div>
+        <div class="code-line"><span class="line-number">25</span><span class="line-code">        header("Location: ../login.php");</span></div>
+        <div class="code-line"><span class="line-number">26</span><span class="line-code">        exit;</span></div>
+        <div class="code-line"><span class="line-number">27</span><span class="line-code">    }</span></div>
+        <div class="code-line"><span class="line-number">28</span><span class="line-code">}</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 22-28:</strong> This function is a "door lock." If someone tries to access a protected page (like the dashboard) without logging in, this function:
+        <br>1. Sets a red alert message saying "Please log in"
+        <br>2. <code>header("Location: ../login.php")</code> → Redirects (sends) the user to the login page
+        <br>3. <code>exit;</code> → Stops all PHP code after this point (very important — without exit, the rest of the page would still load!)
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">34</span><span class="line-code">function require_role($role) {</span></div>
+        <div class="code-line"><span class="line-number">35</span><span class="line-code">    require_login();</span></div>
+        <div class="code-line"><span class="line-number">36</span><span class="line-code">    if ($_SESSION['user_role'] !== $role) {</span></div>
+        <div class="code-line"><span class="line-number">37</span><span class="line-code">        set_flash_message('Access denied!...', 'danger');</span></div>
+        <div class="code-line"><span class="line-number">38-44</span><span class="line-code">        // Redirect owner to owner dashboard, player to player dashboard</span></div>
+        <div class="code-line"><span class="line-number">44</span><span class="line-code">    }</span></div>
+        <div class="code-line"><span class="line-number">45</span><span class="line-code">}</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 34-45:</strong> This is a "VIP check." It first calls <code>require_login()</code> (must be logged in), then checks if the user's role matches what's required.
+        <br><br><strong>Example:</strong> If a player page calls <code>require_role('player')</code>, and an owner tries to access it, they get blocked and redirected to their own dashboard. This prevents players from seeing owner pages and vice versa.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">52</span><span class="line-code">function sanitize($data) {</span></div>
+        <div class="code-line"><span class="line-number">53</span><span class="line-code">    return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');</span></div>
+        <div class="code-line"><span class="line-number">54</span><span class="line-code">}</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 52-54:</strong> This is our "anti-hacker" function! <strong>XSS (Cross-Site Scripting)</strong> is when a hacker types <code>&lt;script&gt;alert('hacked')&lt;/script&gt;</code> into a form. If we display that directly, the browser executes it!
+        <br><br><code>htmlspecialchars()</code> converts dangerous characters into harmless text: <code>&lt;</code> becomes <code>&amp;lt;</code>, so the browser shows it as text instead of running it as code.
+        <br><code>trim()</code> removes extra spaces from the beginning and end.
+        <br><br><strong>Rule:</strong> ALWAYS use <code>sanitize()</code> when displaying user-submitted data on the page!
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">61</span><span class="line-code">function set_flash_message($message, $type = 'success') {</span></div>
+        <div class="code-line"><span class="line-number">62</span><span class="line-code">    $_SESSION['flash_message'] = $message;</span></div>
+        <div class="code-line"><span class="line-number">63</span><span class="line-code">    $_SESSION['flash_type'] = $type;</span></div>
+        <div class="code-line"><span class="line-number">64</span><span class="line-code">}</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 61-64:</strong> A "flash message" is a one-time notification that appears after an action (like "Booking successful!"). This function saves the message and its type (success/danger/warning/info) into the session. It will be displayed on the NEXT page load, then automatically cleared.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">69</span><span class="line-code">function display_flash_message() {</span></div>
+        <div class="code-line"><span class="line-number">70</span><span class="line-code">    if (isset($_SESSION['flash_message'])) {</span></div>
+        <div class="code-line"><span class="line-number">75-91</span><span class="line-code">        // Set colors based on type: green=success, red=danger, yellow=warning, blue=info</span></div>
+        <div class="code-line"><span class="line-number">93-98</span><span class="line-code">        // Echo the styled HTML alert div with close button</span></div>
+        <div class="code-line"><span class="line-number">101</span><span class="line-code">        unset($_SESSION['flash_message']);</span></div>
+        <div class="code-line"><span class="line-number">102</span><span class="line-code">        unset($_SESSION['flash_type']);</span></div>
+        <div class="code-line"><span class="line-number">103</span><span class="line-code">    }</span></div>
+        <div class="code-line"><span class="line-number">104</span><span class="line-code">}</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 69-104:</strong> This function displays the saved flash message and then deletes it (so it only shows once). It picks different colors based on the type:
+        <br>• <strong style="color:#137333">Green</strong> = success (booking confirmed!)
+        <br>• <strong style="color:#c5221f">Red</strong> = danger (error happened)
+        <br>• <strong style="color:#b06000">Yellow</strong> = warning (be careful)
+        <br>• <strong style="color:#1a73e8">Blue</strong> = info (just a note)
+        <br><br>The <code>unset()</code> calls delete the message from the session so it doesn't appear again when the user refreshes.
+    </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== FILE: header.php ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 header.php</h3>
+        <span class="file-path">includes/header.php</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What does this file do?</strong> This is the "top part" of every page. It outputs the HTML head tag (title, CSS links), the navigation bar for visitor pages, and includes the auth.php security file. Every page includes this at the top.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">4</span><span class="line-code">$is_subfolder = (strpos($_SERVER['SCRIPT_NAME'], '/owner/') !== false || strpos($_SERVER['SCRIPT_NAME'], '/player/') !== false);</span></div>
+        <div class="code-line"><span class="line-number">5</span><span class="line-code">$base_path = $is_subfolder ? '../' : './';</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 4-5:</strong> This is a smart path detection system! Pages in <code>/player/</code> or <code>/owner/</code> folders are one level deeper than root pages.
+        <br><br><code>strpos()</code> checks if the URL contains "/owner/" or "/player/". If it does, <code>$base_path = '../'</code> (go up one folder). Otherwise, <code>$base_path = './'</code> (stay in current folder).
+        <br><br><strong>Why?</strong> A CSS link in <code>player/dashboard.php</code> needs <code>../css/style.css</code>, but <code>index.php</code> needs <code>./css/style.css</code>. This variable handles both automatically!
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">8</span><span class="line-code">require_once __DIR__ . '/auth.php';</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 8:</strong> <code>__DIR__</code> is a PHP "magic constant" that gives the folder path of the CURRENT file (includes/). So this always finds auth.php correctly, no matter which page includes header.php. <code>require_once</code> means "include this file, but only once" (prevents double-loading).
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">30</span><span class="line-code">if (!$is_subfolder):</span></div>
+        <div class="code-line"><span class="line-number">32-73</span><span class="line-code">// Show the visitor navigation bar (Home, About, Contact links)</span></div>
+        <div class="code-line"><span class="line-number">78</span><span class="line-code">endif;</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 30-78:</strong> The navigation bar is only shown on <strong>visitor pages</strong> (index, about, contact, login, register). Dashboard pages (player/owner subfolders) have their own sidebar navigation, so we skip this navbar for them.
+        <br><br>Inside the navbar, PHP checks <code>is_logged_in()</code> to show either "Dashboard + Logout" buttons OR "Login + Register" buttons. It also uses <code>basename($_SERVER['SCRIPT_NAME'])</code> to highlight the active page link.
+    </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== FILE: footer.php ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 footer.php</h3>
+        <span class="file-path">includes/footer.php</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What does this file do?</strong> The "bottom part" of every page. It closes the HTML tags opened by header.php, shows the footer (copyright info, links) on visitor pages, and loads the JavaScript file.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">8</span><span class="line-code">if (!$is_subfolder):</span></div>
+        <div class="code-line"><span class="line-number">9</span><span class="line-code">&lt;/main&gt; &lt;!-- End visitor main container --&gt;</span></div>
+        <div class="code-line"><span class="line-number">11-34</span><span class="line-code">// Footer with logo, links, copyright</span></div>
+        <div class="code-line"><span class="line-number">35</span><span class="line-code">endif;</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 8-35:</strong> Just like header.php, the footer section only appears on visitor pages (not dashboard pages). It closes the <code>&lt;/main&gt;</code> tag that header.php opened, then shows the website footer with links and a copyright notice.
+        <br><br><code>date('Y')</code> on line 32 dynamically inserts the current year (2026), so you never need to manually update the copyright year!
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">38</span><span class="line-code">&lt;script src="&lt;?php echo $base_path; ?&gt;js/main.js"&gt;&lt;/script&gt;</span></div>
+        <div class="code-line"><span class="line-number">39</span><span class="line-code">&lt;/body&gt;</span></div>
+        <div class="code-line"><span class="line-number">40</span><span class="line-code">&lt;/html&gt;</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 38-40:</strong> The JavaScript file is loaded at the BOTTOM of the page (before <code>&lt;/body&gt;</code>). This is a best practice because it lets all the HTML load first before running scripts, making the page feel faster.
+    </div>
+</div>
+
+<!-- ============================== -->
+<!-- MODULE 2: DATABASE -->
+<!-- ============================== -->
+<div class="module-header">
+    <h2>🗄️ Module 2: Database Setup</h2>
+    <p>These files define the database structure (tables) and seed it with sample data.</p>
+</div>
+
+<!-- ===== FILE: schema.sql ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 schema.sql</h3>
+        <span class="file-path">database/schema.sql</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What does this file do?</strong> This defines ALL the tables in our database. Think of tables like Excel spreadsheets — each table stores a specific type of data. This project has 6 tables.
+    </div>
+
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th>Table Name</th>
+                <th>What It Stores</th>
+                <th>Key Columns</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>users</strong></td>
+                <td>All user accounts (players + owners)</td>
+                <td>id, name, email, password (hashed), role, phone</td>
+            </tr>
+            <tr>
+                <td><strong>owner_details</strong></td>
+                <td>Extra business info for owners</td>
+                <td>owner_id, business_name, pan_number, bank_details</td>
+            </tr>
+            <tr>
+                <td><strong>futsals</strong></td>
+                <td>Futsal court listings</td>
+                <td>id, owner_id, name, location, price_per_hour, image_path</td>
+            </tr>
+            <tr>
+                <td><strong>reward_points</strong></td>
+                <td>Player loyalty points balance</td>
+                <td>player_id, points (starts at 100)</td>
+            </tr>
+            <tr>
+                <td><strong>bookings</strong></td>
+                <td>All slot reservations</td>
+                <td>player_id, futsal_id, booking_date, start_time, end_time, status</td>
+            </tr>
+            <tr>
+                <td><strong>reviews</strong></td>
+                <td>Player ratings & feedback for courts</td>
+                <td>futsal_id, user_name, rating (1-5), message</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="explanation">
+        <strong>Important SQL concepts used:</strong>
+        <br>• <code>AUTO_INCREMENT</code> → ID numbers increase automatically (1, 2, 3...)
+        <br>• <code>PRIMARY KEY</code> → The unique identifier for each row
+        <br>• <code>FOREIGN KEY</code> → Links one table to another (e.g., bookings links to futsals via futsal_id)
+        <br>• <code>ON DELETE CASCADE</code> → If a user is deleted, all their bookings/reviews are automatically deleted too
+        <br>• <code>ENUM('pending','approved','rejected','cancelled')</code> → A column that can ONLY have these 4 values
+        <br>• <code>DEFAULT CURRENT_TIMESTAMP</code> → Automatically saves the current date/time when a row is created
+    </div>
+
+    <div class="flow-box">
+        <strong>How tables connect to each other:</strong><br><br>
+        users (id) ← owner_details (owner_id)<br>
+        users (id) ← futsals (owner_id)<br>
+        users (id) ← reward_points (player_id)<br>
+        users (id) ← bookings (player_id)<br>
+        futsals (id) ← bookings (futsal_id)<br>
+        futsals (id) ← reviews (futsal_id)
+    </div>
+</div>
+
+<!-- ============================== -->
+<!-- MODULE 3: PUBLIC PAGES -->
+<!-- ============================== -->
+<div class="module-header">
+    <h2>🌐 Module 3: Public Visitor Pages</h2>
+    <p>These pages are visible to everyone — login, register, homepage, about, and contact.</p>
+</div>
+
+<!-- ===== FILE: login.php ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 login.php</h3>
+        <span class="file-path">login.php</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What does this file do?</strong> This is the login page. Users enter their email, password, and select their role (Player or Owner). PHP checks the credentials against the database and creates a session if valid.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">10</span><span class="line-code">if (is_logged_in()) {</span></div>
+        <div class="code-line"><span class="line-number">11-16</span><span class="line-code">    // If already logged in, redirect to their dashboard</span></div>
+        <div class="code-line"><span class="line-number">17</span><span class="line-code">}</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 10-17:</strong> If a logged-in user visits the login page, they get redirected to their dashboard automatically. No need to show the login form again — they're already in!
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">23</span><span class="line-code">if ($_SERVER['REQUEST_METHOD'] === 'POST') {</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 23:</strong> This checks: "Was the form submitted?" When you click the "Sign In" button, the browser sends a POST request. This line ensures we only process login when the form is actually submitted, not when the page first loads (which is a GET request).
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">24</span><span class="line-code">    $email = trim($_POST['email'] ?? '');</span></div>
+        <div class="code-line"><span class="line-number">25</span><span class="line-code">    $password = $_POST['password'] ?? '';</span></div>
+        <div class="code-line"><span class="line-number">26</span><span class="line-code">    $role = $_POST['role'] ?? 'player';</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 24-26:</strong> Grab the submitted form data:
+        <br>• <code>$_POST['email']</code> → What the user typed in the email field
+        <br>• <code>trim()</code> → Removes extra spaces from both sides
+        <br>• <code>?? ''</code> → If the field is missing, use an empty string (prevents errors)
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">33</span><span class="line-code">    $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email AND role = :role");</span></div>
+        <div class="code-line"><span class="line-number">34-37</span><span class="line-code">    $stmt->execute(['email' => $email, 'role' => $role]);</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 33-37:</strong> This is a <strong>prepared statement</strong> — the SAFEST way to query a database.
+        <br><br>Instead of putting user input directly into SQL (dangerous!), we use <code>:email</code> as a placeholder. Then <code>execute()</code> safely inserts the actual values. This makes SQL injection attacks <strong>impossible</strong>.
+        <br><br>The query finds a user matching both the email AND role. So if you have the same email registered as player and owner (unlikely but possible), the role selection matters.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">42</span><span class="line-code">    if ($user && password_verify($password, $user['password'])) {</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 42:</strong> Two checks happen here:
+        <br>1. <code>$user</code> → Did we find a matching user in the database?
+        <br>2. <code>password_verify($password, $user['password'])</code> → Does the entered password match the stored hash?
+        <br><br><strong>Important:</strong> We NEVER store plain text passwords! <code>password_hash()</code> (used during registration) creates a one-way encrypted version. <code>password_verify()</code> can check if a plain password matches the hash, but you can NEVER convert the hash back to the original password. This is called <strong>one-way hashing</strong>.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">44</span><span class="line-code">        $_SESSION['user_id'] = $user['id'];</span></div>
+        <div class="code-line"><span class="line-number">45</span><span class="line-code">        $_SESSION['user_name'] = $user['name'];</span></div>
+        <div class="code-line"><span class="line-number">46</span><span class="line-code">        $_SESSION['user_email'] = $user['email'];</span></div>
+        <div class="code-line"><span class="line-number">47</span><span class="line-code">        $_SESSION['user_role'] = $user['role'];</span></div>
+        <div class="code-line"><span class="line-number">48</span><span class="line-code">        $_SESSION['user_phone'] = $user['phone'];</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 44-48:</strong> If login is successful, we save the user's info into the session. This is like giving them an "ID card" that every page can check. These values persist across all pages until the user logs out or closes the browser.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">53-57</span><span class="line-code">        // Redirect to the right dashboard based on role</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 53-57:</strong> After successful login, owners go to <code>owner/dashboard.php</code> and players go to <code>player/dashboard.php</code>. The <code>exit;</code> is crucial — it stops PHP from executing any code below the redirect.
+    </div>
+
+    <div class="flow-box">
+        <strong>Login Flow:</strong><br><br>
+        User fills form → Clicks "Sign In" → PHP receives POST data<br>
+        ↓<br>
+        PHP queries database for email + role match<br>
+        ↓<br>
+        password_verify() checks if password is correct<br>
+        ↓<br>
+        ✅ Success: Save to session → Redirect to dashboard<br>
+        ❌ Fail: Show error message → Stay on login page
+    </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== FILE: register.php ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 register.php</h3>
+        <span class="file-path">register.php</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What does this file do?</strong> This page lets new users create an account. They choose to register as a Player or Owner, fill in their details, and the system securely stores their information in the database.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">31</span><span class="line-code">    if (empty($name) || empty($email) || empty($phone) || empty($password) || empty($role)) {</span></div>
+        <div class="code-line"><span class="line-number">33</span><span class="line-code">    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {</span></div>
+        <div class="code-line"><span class="line-number">35</span><span class="line-code">    } elseif (strlen($password) < 6) {</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 31-35:</strong> <strong>Server-side validation</strong> — even if someone bypasses the HTML form validation (using dev tools), PHP still checks:
+        <br>1. Are all fields filled? (<code>empty()</code> checks for blank values)
+        <br>2. Is the email format valid? (<code>filter_var</code> with <code>FILTER_VALIDATE_EMAIL</code> checks for proper email format like user@example.com)
+        <br>3. Is the password at least 6 characters? (<code>strlen()</code> counts the characters)
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">49</span><span class="line-code">        $conn->beginTransaction();</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 49:</strong> <strong>Transaction</strong> — This is like saying "I'm about to do multiple database operations. Either ALL of them succeed, or NONE of them happen." We need to insert into multiple tables (users + reward_points OR owner_details). If the second insert fails, the transaction rolls back the first one too, keeping our database clean.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">52</span><span class="line-code">        $hashed_password = password_hash($password, PASSWORD_DEFAULT);</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 52:</strong> <code>password_hash()</code> converts the plain password into an encrypted hash. <code>PASSWORD_DEFAULT</code> uses the strongest algorithm available (currently bcrypt). The hash looks like: <code>$2y$10$xYz...</code> — completely unreadable! Even if someone steals your database, they can't see the actual passwords.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">67</span><span class="line-code">        if ($role === 'player') {</span></div>
+        <div class="code-line"><span class="line-number">69</span><span class="line-code">            // Insert 100 bonus reward points</span></div>
+        <div class="code-line"><span class="line-number">71</span><span class="line-code">        } else {</span></div>
+        <div class="code-line"><span class="line-number">73</span><span class="line-code">            // Create empty owner_details profile</span></div>
+        <div class="code-line"><span class="line-number">74</span><span class="line-code">        }</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 67-74:</strong> After creating the user account, we do role-specific setup:
+        <br>• <strong>Players</strong> get 100 free reward points as a welcome bonus (inserted into reward_points table)
+        <br>• <strong>Owners</strong> get an empty business profile created (in owner_details table) which they can fill in later
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">78</span><span class="line-code">        $conn->commit();</span></div>
+        <div class="code-line"><span class="line-number">86-88</span><span class="line-code">        // If error: $conn->rollBack();</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 78:</strong> <code>commit()</code> finalizes all the database changes. Everything we did since <code>beginTransaction()</code> is now permanently saved.
+        <br><br>If any error occurs (in the catch block), <code>rollBack()</code> on line 87 undoes ALL changes. This ensures we never have a "half-registered" user (user exists but no reward points).
+    </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== FILE: logout.php ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 logout.php</h3>
+        <span class="file-path">logout.php</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What does this file do?</strong> This file logs the user out by destroying their session completely, then redirects them to the homepage.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">8</span><span class="line-code">$_SESSION = array();</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 8:</strong> Clears ALL session data by setting it to an empty array. All stored user info (user_id, user_name, etc.) is wiped.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">12</span><span class="line-code">if (ini_get("session.use_cookies")) {</span></div>
+        <div class="code-line"><span class="line-number">13-17</span><span class="line-code">    // Delete the session cookie from the browser</span></div>
+        <div class="code-line"><span class="line-number">18</span><span class="line-code">}</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 12-18:</strong> Sessions use a cookie (small file) in the browser to identify the user. This code deletes that cookie by setting its expiry time to the past (<code>time() - 42000</code> = 42000 seconds ago). The browser sees the expired cookie and removes it.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">21</span><span class="line-code">session_destroy();</span></div>
+        <div class="code-line"><span class="line-number">24</span><span class="line-code">session_start();</span></div>
+        <div class="code-line"><span class="line-number">25</span><span class="line-code">set_flash_message("You have been logged out successfully.", "info");</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 21-25:</strong> <code>session_destroy()</code> completely kills the session on the server. Then we start a FRESH new session just to pass a "logged out successfully" flash message to the homepage. Smart trick!
+    </div>
+</div>
+
+<!-- ============================== -->
+<!-- MODULE 4: PLAYER PORTAL -->
+<!-- ============================== -->
+<div class="module-header">
+    <h2>⚽ Module 4: Player Portal</h2>
+    <p>These pages are only accessible to logged-in players. They handle searching, booking, history, rewards, and profile management.</p>
+</div>
+
+<!-- ===== FILE: player/dashboard.php ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 dashboard.php</h3>
+        <span class="file-path">player/dashboard.php</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What does this file do?</strong> This is the main landing page after a player logs in. It shows their reward points, upcoming matches, total bookings, and a table of their recent bookings.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">9</span><span class="line-code">require_role('player');</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 9:</strong> The very first thing this page does is call <code>require_role('player')</code>. If a non-player (or non-logged-in user) tries to access this page, they get immediately redirected. This is our security gatekeeper.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">15</span><span class="line-code">$stmt_points = $conn->prepare("SELECT points FROM reward_points WHERE player_id = :player_id");</span></div>
+        <div class="code-line"><span class="line-number">21</span><span class="line-code">$stmt_total = $conn->prepare("SELECT COUNT(*) as total FROM bookings WHERE player_id = :player_id");</span></div>
+        <div class="code-line"><span class="line-number">26</span><span class="line-code">$stmt_upcoming = $conn->prepare("SELECT COUNT(*) as upcoming FROM bookings WHERE ... AND booking_date >= CURDATE() AND status IN ('pending', 'approved')");</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 15-28:</strong> Three separate queries fetch dashboard statistics:
+        <br>1. <strong>Reward Points</strong> — Gets the player's current points from reward_points table
+        <br>2. <strong>Total Bookings</strong> — <code>COUNT(*)</code> counts how many bookings this player has ever made
+        <br>3. <strong>Upcoming Matches</strong> — Counts bookings where the date is today or in the future (<code>CURDATE()</code>) AND status is still pending or approved (not cancelled/rejected)
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">31</span><span class="line-code">$stmt_list = $conn->prepare("SELECT b.*, f.name as futsal_name, f.location FROM bookings b JOIN futsals f ON b.futsal_id = f.id WHERE b.player_id = :player_id ORDER BY ... LIMIT 5");</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 31:</strong> This uses a <strong>JOIN</strong> — one of the most important SQL concepts! The bookings table only stores <code>futsal_id</code> (a number), but we want to display the futsal's NAME and LOCATION. <code>JOIN futsals f ON b.futsal_id = f.id</code> combines both tables so we get all the info we need. <code>LIMIT 5</code> shows only the 5 most recent bookings.
+    </div>
+
+    <div class="tip-box">
+        💡 <strong>Student Tip:</strong> The sidebar navigation is repeated in every dashboard page. In a more advanced project, you'd extract it into a separate include file. For simplicity, we keep it in each page so beginners can see the full HTML structure.
+    </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== FILE: player/search.php ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 search.php</h3>
+        <span class="file-path">player/search.php</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What does this file do?</strong> This page lets players search for available futsal grounds. They can filter by name or city/location. Results are displayed as cards with a "Book Court" button.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">11</span><span class="line-code">$search_query = trim($_GET['query'] ?? '');</span></div>
+        <div class="code-line"><span class="line-number">12</span><span class="line-code">$search_location = trim($_GET['location'] ?? '');</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 11-12:</strong> Search forms use <strong>GET</strong> method (not POST) because search results should be bookmarkable. The filters appear in the URL like <code>search.php?query=Elite&location=Kathmandu</code>. We grab these values using <code>$_GET</code>.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">16</span><span class="line-code">$sql = "SELECT f.*, u.name as owner_name FROM futsals f JOIN users u ON f.owner_id = u.id WHERE 1=1";</span></div>
+        <div class="code-line"><span class="line-number">19</span><span class="line-code">if (!empty($search_query)) {</span></div>
+        <div class="code-line"><span class="line-number">20</span><span class="line-code">    $sql .= " AND f.name LIKE :query";</span></div>
+        <div class="code-line"><span class="line-number">21</span><span class="line-code">    $params['query'] = '%' . $search_query . '%';</span></div>
+        <div class="code-line"><span class="line-number">22</span><span class="line-code">}</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 16-27:</strong> This is a <strong>dynamic query builder</strong>. We start with <code>WHERE 1=1</code> (which is always true — a trick to make adding conditions easier). Then we conditionally add filters:
+        <br><br>• If a search query exists: add <code>AND name LIKE '%search%'</code> (LIKE with % means "contains this text anywhere")
+        <br>• If a location is selected: add <code>AND location = 'Kathmandu'</code> (exact match)
+        <br><br>This way, the query adapts based on what filters the user selected.
+    </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== FILE: player/check_slots.php ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 check_slots.php</h3>
+        <span class="file-path">player/check_slots.php</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What does this file do?</strong> This is an <strong>AJAX API endpoint</strong>. It doesn't show any HTML — it returns JSON data. The booking page's JavaScript calls this file to check which time slots are already booked for a specific date.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">5</span><span class="line-code">header('Content-Type: application/json');</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 5:</strong> This tells the browser: "I'm returning JSON data, not HTML." Without this header, the browser might misinterpret the response.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">26</span><span class="line-code">$stmt = $conn->prepare("SELECT start_time, status FROM bookings WHERE futsal_id = :futsal_id AND booking_date = :booking_date AND status IN ('pending', 'approved')");</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 26:</strong> Query all bookings for a specific court on a specific date that are either 'pending' or 'approved' (we ignore cancelled/rejected ones). This tells us which time slots are taken.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">41</span><span class="line-code">$mapped_slots = [];</span></div>
+        <div class="code-line"><span class="line-number">42-46</span><span class="line-code">// Map: '07:00' => 'approved', '10:00' => 'pending'</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 41-46:</strong> We convert the database results into a simple map. <code>substr($slot['start_time'], 0, 5)</code> converts '07:00:00' to '07:00' for easier matching in JavaScript. The result looks like: <code>{"07:00": "approved", "10:00": "pending"}</code>
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">49</span><span class="line-code">echo json_encode(['success' => true, 'booked_slots' => $mapped_slots]);</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 49:</strong> <code>json_encode()</code> converts the PHP array into a JSON string that JavaScript can understand. This is how PHP "talks" to JavaScript across the network.
+    </div>
+
+    <div class="flow-box">
+        <strong>AJAX Booking Flow:</strong><br><br>
+        Player picks a date on book.php → JavaScript sends request to check_slots.php<br>
+        ↓<br>
+        check_slots.php queries database → Returns JSON with booked time slots<br>
+        ↓<br>
+        JavaScript receives JSON → Marks slots as "Booked" or "Pending" on the page<br>
+        ↓<br>
+        Player selects an available slot → Submits booking form
+    </div>
+</div>
+
+<!-- ============================== -->
+<!-- MODULE 5: OWNER PORTAL -->
+<!-- ============================== -->
+<div class="module-header">
+    <h2>🏢 Module 5: Owner Portal</h2>
+    <p>These pages are only for futsal ground owners. They can add courts, manage bookings, approve/reject reservations, and view revenue statistics.</p>
+</div>
+
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 Key Owner Features Summary</h3>
+        <span class="file-path">owner/*.php</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 Owner Portal Overview:</strong> The owner portal mirrors the player portal structure but with management capabilities instead of booking capabilities.
+    </div>
+
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th>File</th>
+                <th>Purpose</th>
+                <th>Key Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>dashboard.php</strong></td>
+                <td>Owner's main page with stats</td>
+                <td>Shows total courts, total bookings, monthly revenue, recent bookings table</td>
+            </tr>
+            <tr>
+                <td><strong>futsals.php</strong></td>
+                <td>List all owner's courts</td>
+                <td>Displays cards for each court with Edit/Delete buttons</td>
+            </tr>
+            <tr>
+                <td><strong>futsal_add.php</strong></td>
+                <td>Add a new futsal court</td>
+                <td>Form with name, location, price, contact, description, image upload</td>
+            </tr>
+            <tr>
+                <td><strong>futsal_edit.php</strong></td>
+                <td>Edit existing court details</td>
+                <td>Pre-filled form, update query with new values</td>
+            </tr>
+            <tr>
+                <td><strong>bookings.php</strong></td>
+                <td>Manage player reservations</td>
+                <td>Approve/Reject bookings + Award reward points via transaction</td>
+            </tr>
+            <tr>
+                <td><strong>stats.php</strong></td>
+                <td>Revenue & analytics</td>
+                <td>Total revenue, monthly breakdown, booking counts per court</td>
+            </tr>
+            <tr>
+                <td><strong>profile.php</strong></td>
+                <td>Business profile settings</td>
+                <td>Update business name, PAN number, bank details, personal info</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="explanation">
+        <strong>How the Reward System Works (in bookings.php):</strong>
+        <br><br>When an owner <strong>approves</strong> a booking, the system:
+        <br>1. Starts a database transaction (all-or-nothing)
+        <br>2. Updates the booking status to 'approved'
+        <br>3. Awards <strong>+15 reward points</strong> to the player
+        <br>4. Checks if the player has completed a multiple of 5 bookings → if yes, gives an extra <strong>+20 bonus points</strong>!
+        <br>5. Commits all changes together
+        <br><br>When a player <strong>cancels</strong> within 6 hours of the scheduled time, they lose <strong>-20 points</strong> as a penalty.
+    </div>
+
+    <div class="flow-box">
+        <strong>Booking Approval & Reward Points Flow:</strong><br><br>
+        Player books a slot (status = 'pending')<br>
+        ↓<br>
+        Owner sees booking in bookings.php → Clicks "Approve"<br>
+        ↓<br>
+        PHP starts transaction → Updates status to 'approved'<br>
+        ↓<br>
+        Awards +15 points to player → Checks 5th booking bonus (+20)<br>
+        ↓<br>
+        Commits transaction → Player sees updated points
+    </div>
+</div>
+
+<!-- ============================== -->
+<!-- MODULE 6: FRONTEND ASSETS -->
+<!-- ============================== -->
+<div class="module-header">
+    <h2>🎨 Module 6: Frontend Assets (CSS & JavaScript)</h2>
+    <p>These files control how the website LOOKS (CSS) and how it BEHAVES dynamically (JavaScript).</p>
+</div>
+
+<!-- ===== FILE: js/main.js ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 main.js</h3>
+        <span class="file-path">js/main.js</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What does this file do?</strong> This handles two simple things: the mobile hamburger menu toggle and auto-hiding flash notification messages after 5 seconds.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">4</span><span class="line-code">document.addEventListener('DOMContentLoaded', function () {</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Line 4:</strong> <code>DOMContentLoaded</code> means "wait until the entire HTML page has finished loading before running this code." Without this, JavaScript might try to find elements that don't exist yet and crash.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">6</span><span class="line-code">    const mobileToggle = document.getElementById('mobile-toggle');</span></div>
+        <div class="code-line"><span class="line-number">11</span><span class="line-code">    mobileToggle.addEventListener('click', function () {</span></div>
+        <div class="code-line"><span class="line-number">13</span><span class="line-code">        navLinks.classList.toggle('show');</span></div>
+        <div class="code-line"><span class="line-number">16</span><span class="line-code">        this.classList.toggle('active');</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 6-22:</strong> This creates the <strong>hamburger menu</strong> for mobile devices. When the user taps the ☰ button:
+        <br>• <code>classList.toggle('show')</code> adds or removes the 'show' class on the nav links, making them visible or hidden
+        <br>• <code>classList.toggle('active')</code> animates the hamburger icon to become an X
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">26</span><span class="line-code">    const flashAlert = document.getElementById('flash-alert');</span></div>
+        <div class="code-line"><span class="line-number">28</span><span class="line-code">    setTimeout(function () {</span></div>
+        <div class="code-line"><span class="line-number">30-34</span><span class="line-code">        // Fade out then hide after 5 seconds</span></div>
+        <div class="code-line"><span class="line-number">35</span><span class="line-code">    }, 5000);</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 26-36:</strong> Auto-hides flash messages. <code>setTimeout(callback, 5000)</code> waits 5 seconds (5000 milliseconds), then:
+        <br>1. Sets opacity to 0 with a smooth CSS transition (fade out effect)
+        <br>2. After 500ms more, sets <code>display: 'none'</code> to completely remove it from the page
+    </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== FILE: js/booking.js ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 booking.js</h3>
+        <span class="file-path">js/booking.js</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What does this file do?</strong> This is the "brain" of the booking page. It uses <strong>AJAX (fetch API)</strong> to check slot availability in real-time without refreshing the page, and shows a booking summary when a time slot is selected.
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">15</span><span class="line-code">    loadAvailableSlots();</span></div>
+        <div class="code-line"><span class="line-number">18</span><span class="line-code">    dateInput.addEventListener('change', loadAvailableSlots);</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 15 & 18:</strong> When the booking page loads, we immediately check which slots are available. Also, whenever the player changes the date, we re-check automatically. This is <strong>real-time availability checking</strong>!
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">44</span><span class="line-code">    fetch(`check_slots.php?futsal_id=${futsalId}&date=${dateVal}`)</span></div>
+        <div class="code-line"><span class="line-number">45</span><span class="line-code">        .then(response => response.json())</span></div>
+        <div class="code-line"><span class="line-number">46</span><span class="line-code">        .then(data => { ... })</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 44-46:</strong> <code>fetch()</code> is the modern way to make HTTP requests from JavaScript. It calls our <code>check_slots.php</code> API with the futsal ID and selected date.
+        <br><br><code>.then(response => response.json())</code> converts the response into a JavaScript object.
+        <br><code>.then(data => { ... })</code> processes the data — marking slots as booked or available.
+        <br><br>This all happens <strong>without refreshing the page</strong> — that's the magic of AJAX!
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">56</span><span class="line-code">    if (booked.hasOwnProperty(timeVal)) {</span></div>
+        <div class="code-line"><span class="line-number">58</span><span class="line-code">        radio.disabled = true;</span></div>
+        <div class="code-line"><span class="line-number">60-66</span><span class="line-code">        // Mark as 'Booked' or 'Pending' visually</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 56-68:</strong> For each time slot radio button on the page, we check if it exists in the booked slots data. If it does:
+        <br>• <code>radio.disabled = true</code> → Makes the radio button unclickable
+        <br>• Adds CSS classes ('booked' or 'pending') to change the slot's color to red or yellow
+        <br>• Updates the label text to show "Booked" or "Pending"
+    </div>
+
+    <div class="code-block">
+        <div class="code-line"><span class="line-number">83-112</span><span class="line-code">// When player selects a time slot, show booking summary</span></div>
+    </div>
+    <div class="explanation">
+        <strong>Lines 83-112:</strong> When a player clicks on an available slot, JavaScript calculates a formatted time display (e.g., "7:00 AM to 8:00 AM") and shows a green "Booking Confirmation Summary" box with the date, time, and total price. The "Confirm Booking" button is also enabled.
+    </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== CSS Overview ===== -->
+<div class="file-section">
+    <div class="file-header">
+        <h3>📄 CSS Files Overview</h3>
+        <span class="file-path">css/style.css & css/dashboard.css</span>
+    </div>
+    <div class="file-purpose">
+        <strong>🎯 What do these files do?</strong> <code>style.css</code> controls ALL visual design — colors, fonts, layouts, buttons, cards, responsive breakpoints. <code>dashboard.css</code> specifically styles the sidebar, topbar, and dashboard grid layouts.
+    </div>
+
+    <div class="explanation">
+        <strong>Key CSS Variables (Custom Properties):</strong>
+        <br>The project uses CSS variables defined with <code>:root { --variable-name: value; }</code>. This creates a central "design system" — change one variable and the entire site updates!
+    </div>
+
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th>Variable</th>
+                <th>Value</th>
+                <th>Used For</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>--primary-color</code></td><td>#10b981</td><td>Main green color (buttons, links, accents)</td></tr>
+            <tr><td><code>--primary-dark</code></td><td>#059669</td><td>Darker green (button hover states)</td></tr>
+            <tr><td><code>--primary-darkest</code></td><td>#065f46</td><td>Darkest green (headings)</td></tr>
+            <tr><td><code>--light-green</code></td><td>#ecfdf5</td><td>Light background tint</td></tr>
+            <tr><td><code>--text-main</code></td><td>#1f2937</td><td>Primary text color</td></tr>
+            <tr><td><code>--text-muted</code></td><td>#6b7280</td><td>Secondary/subtle text</td></tr>
+            <tr><td><code>--border-color</code></td><td>#e5e7eb</td><td>Card and section borders</td></tr>
+            <tr><td><code>--border-radius</code></td><td>10px</td><td>Rounded corners everywhere</td></tr>
+            <tr><td><code>--danger-color</code></td><td>#ef4444</td><td>Red for errors and cancellations</td></tr>
+        </tbody>
+    </table>
+
+    <div class="explanation">
+        <strong>Key CSS concepts used:</strong>
+        <br>• <strong>Flexbox</strong> (<code>display: flex</code>) → Used for horizontal layouts like navbar, cards, stat widgets
+        <br>• <strong>CSS Grid</strong> (<code>display: grid</code>) → Used for the 3-column card grids (<code>.grid-3</code>)
+        <br>• <strong>Media Queries</strong> (<code>@media (max-width: 768px)</code>) → Makes the site responsive on mobile
+        <br>• <strong>Transitions</strong> (<code>transition: all 0.2s ease</code>) → Smooth hover effects on buttons and cards
+        <br>• <strong>Box Shadow</strong> → Soft shadows on cards for depth
+        <br>• <strong>No gradients</strong> → Per your design requirement, all colors are flat/solid
+    </div>
+</div>
+
+<!-- ============================== -->
+<!-- FINAL SUMMARY -->
+<!-- ============================== -->
+<div class="module-header">
+    <h2>🏆 Complete System Summary</h2>
+    <p>How everything connects together — the big picture.</p>
+</div>
+
+<div class="file-section">
+    <div class="file-header">
+        <h3>📊 Full Data Flow Diagram</h3>
+    </div>
+
+    <div class="flow-box" style="text-align: left; line-height: 2.2;">
+        <strong>Step 1: User Opens Website</strong><br>
+        → Browser loads index.php → header.php runs → session_start() → CSS loaded<br><br>
+        
+        <strong>Step 2: User Registers</strong><br>
+        → register.php → Validates input → password_hash() → INSERT INTO users → INSERT INTO reward_points (100 pts) → Redirect to login.php<br><br>
+        
+        <strong>Step 3: User Logs In</strong><br>
+        → login.php → SELECT user from database → password_verify() → Save to $_SESSION → Redirect to dashboard<br><br>
+        
+        <strong>Step 4: Player Searches & Books</strong><br>
+        → search.php → SELECT futsals with filters → Display cards → Click "Book Court" → book.php<br>
+        → JavaScript calls check_slots.php (AJAX) → Returns JSON of booked slots<br>
+        → Player picks date + time → POST form → INSERT INTO bookings (status: pending)<br><br>
+        
+        <strong>Step 5: Owner Approves Booking</strong><br>
+        → owner/bookings.php → Shows pending bookings → Click "Approve"<br>
+        → BEGIN TRANSACTION → UPDATE booking status → UPDATE reward_points (+15) → Check 5th bonus (+20) → COMMIT<br><br>
+        
+        <strong>Step 6: Player Writes Review</strong><br>
+        → book.php review form → INSERT INTO reviews → Display with star ratings<br><br>
+        
+        <strong>Step 7: User Logs Out</strong><br>
+        → logout.php → $_SESSION = [] → session_destroy() → Redirect to index.php
+    </div>
+
+    <div class="file-purpose">
+        <strong>🎓 Key Takeaways for Students:</strong>
+        <br>• Always use <strong>PDO prepared statements</strong> for database queries (prevents SQL injection)
+        <br>• Always use <strong>password_hash()</strong> and <strong>password_verify()</strong> (never store plain passwords)
+        <br>• Always <strong>sanitize()</strong> user input before displaying it (prevents XSS attacks)
+        <br>• Use <strong>sessions</strong> to remember logged-in users across pages
+        <br>• Use <strong>transactions</strong> when modifying multiple tables together
+        <br>• Use <strong>AJAX (fetch)</strong> for real-time updates without page refresh
+        <br>• Use <strong>CSS variables</strong> for consistent design across the entire project
+        <br>• Always call <strong>exit;</strong> after <strong>header("Location: ...")</strong> redirects
+    </div>
+</div>
+
+<div style="text-align: center; padding: 40px; margin-top: 40px; border-top: 2px solid #e5e7eb;">
+    <p style="color: #9ca3af; font-size: 13px;">
+        📖 HAMROFUTSAL Complete Code Guide — Generated for Students & Beginners<br>
+        Open this file in Google Chrome → Press <strong>Ctrl + P</strong> → Select <strong>"Save as PDF"</strong>
+    </p>
+</div>
+
+</body>
+</html>
